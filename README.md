@@ -2,20 +2,30 @@
 
 Find solution to server issues identified in logs using stackoverflow as a knowledge base. Identify root causes in these.
 
-## Targets
+## TL;DR - Just launch it
 
-We want to build a tool that scrapes the Stackoverflow website and for every question (generally a question reflects a symptom of a problem) it predicts two things:
-
-* The root cause of the problem
-* The solution (answer) of the problem
+```shell
+docker-compose run stackrca
+```
 
 ## Approach
+
+### Startig point
+
+* no pre-existing annotated data
+* no clear definitiion of "root cause"
+* no knowledge of collection language specificities vs "normal" english
+
+### "Plan of attack"
+
+Fancy model might be as good (or bad) as simple one since we have very few data. The core will be to build up a first clean dataset of annotated Q/A.
 
 * Collect data
 * Assess structure of the data and metadata that could be queried to speed the search
 * Given a “symptom” find relevant answered questions
 * Among these, detect if a root cause is presented
 * Try to assess the “confidence” in the proposed answer
+* Setup annotation tools and eventualy active learning
 
 ## Collect data
 
@@ -161,3 +171,11 @@ Train a basic model for classification of root cause presence in answer. Using s
         * if confidence low => ask user feedback for annotation
 * as soon as more data annotated (ie 10% more): ask to retrain the model
 * report performance and continue
+
+### TODO
+
+* [ ] assess balance of annotated data
+* [ ] assess inter-annotator agreement on annotation
+* [ ] test thresholding the classification score to enable rejection
+* [ ] analyse vocabulary and distributional semantics on the offline corpus
+* [ ] explore unsupervised pre-training for better model
