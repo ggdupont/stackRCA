@@ -1,0 +1,18 @@
+version: '3.0'
+
+services:
+  # stack cli annotation explorer
+  stackrca:
+    stdin_open: true
+    tty: true
+    #image: stackrca:1.0
+    volumes:
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command:
+      - python
+      - /app/stack_cli_explorer.py
+    

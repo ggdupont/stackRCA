@@ -1,0 +1,7 @@
+spacy==2.2.4
+simplejson==3.17.0
+tokenizers==0.7.0
+requests==2.23.0
+thinc==7.4.0
+tqdm==4.46.0
+beautifulsoup4==4.9.1
