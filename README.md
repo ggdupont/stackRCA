@@ -10,7 +10,7 @@ docker-compose run stackrca
 
 ## Approach
 
-### Startig point
+### Starting point
 
 * no pre-existing annotated data
 * no clear definitiion of "root cause"
